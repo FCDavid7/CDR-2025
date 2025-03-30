@@ -1,0 +1,51 @@
+---
+title: "Actividad 1"
+author: "David Fernández"
+format: html
+editor: visual
+---
+
+## Actividad 1
+
+### Pregunta 1
+
+Cargar el dataset y guardarlo en un objeto llamado df . Utilizar la función read_xlsx del paquete readxl
+
+```{r}
+df <- read_excel("C:/Users/matias/Downloads/dataset actividad I.xlsx")
+df
+```
+
+### Pregunta 2
+
+Analizar la estructura del dataset: cantidad de observaciones, columnas, tipos de variables (numéricas , categóricas )
+
+```{r}
+glimpse(df)
+
+```
+
+### Pregunta 3
+
+Convertir la variable grupo como factor.
+
+```{r}
+df <- mutate(df, grupo = as_factor(grupo))
+df
+
+```
+### Pregunta 4
+
+Calcular la media, mediana, desviación estándar para las variables numéricas.
+
+```{r}
+df <- summarise(df, 
+    media_var_1 = mean(var_1),
+    media_var_2 = mean(var_2),
+    mediana_var_1 = median(var_1),
+    mediana_var_2 = median(var_2),
+    desviacion_var_1 = sd(var_1),
+    desviacion_var_2 = sd(var_2)
+)
+print(df)
+```
